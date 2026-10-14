@@ -159,6 +159,10 @@ body {
     <div class="chart-canvas-wrapper"><canvas id="chartRatio"></canvas></div>
   </div>
   <div class="chart-box">
+    <h2>上证指数 原始走势</h2>
+    <div class="chart-canvas-wrapper small"><canvas id="chartSSE"></canvas></div>
+  </div>
+  <div class="chart-box">
     <h2>铜价 & 油价 原始走势</h2>
     <div class="chart-canvas-wrapper small"><canvas id="chartPrices"></canvas></div>
   </div>
@@ -341,7 +345,38 @@ function renderCharts(d) {
     }
   });
 
-  // 图2: 铜价 + 油价
+  // 图2: 上证指数原始走势
+  if (charts.sse) charts.sse.destroy();
+  const sseGrad = ctx1.createLinearGradient(0, 0, 0, 280);
+  sseGrad.addColorStop(0, 'rgba(220,20,60,0.2)');
+  sseGrad.addColorStop(1, 'rgba(220,20,60,0.01)');
+  charts.sse = new Chart(document.getElementById('chartSSE').getContext('2d'), {
+    type: 'line',
+    data: {
+      labels: dateObjs,
+      datasets: [{
+        label: '上证指数', data: d.sse,
+        borderColor: '#DC143C', backgroundColor: sseGrad,
+        borderWidth: 2, fill: true, tension: 0.3, pointRadius: 0, pointHoverRadius: 5,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { position: 'top', labels: { boxWidth: 12 } },
+        tooltip: { backgroundColor: '#161b22', borderColor: '#30363d', borderWidth: 1,
+          callbacks: { title: i => new Date(i[0].parsed.x).toLocaleDateString('zh-CN'),
+            label: i => `上证: ${i.parsed.y.toFixed(2)} 点` } }
+      },
+      scales: {
+        x: { type: 'time', time: { unit: 'day' }, grid, ticks },
+        y: { grid, title: { display: true, text: '点位' } }
+      }
+    }
+  });
+
+  // 图3: 铜价 + 油价
   if (charts.prices) charts.prices.destroy();
   charts.prices = new Chart(document.getElementById('chartPrices').getContext('2d'), {
     type: 'line',
@@ -373,7 +408,7 @@ function renderCharts(d) {
     }
   });
 
-  // 图3: 铜油比原始值
+  // 图4: 铜油比原始值
   if (charts.rawRatio) charts.rawRatio.destroy();
   const meanR = avg(d.ratio);
   charts.rawRatio = new Chart(document.getElementById('chartRawRatio').getContext('2d'), {
