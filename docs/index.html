@@ -19,187 +19,93 @@ body {
   border-bottom: 1px solid #30363d;
   padding: 20px 24px;
 }
-.header h1 {
-  font-size: 22px;
-  font-weight: 700;
-  color: #f0f6fc;
-  margin-bottom: 4px;
-}
-.header .subtitle {
-  font-size: 13px;
-  color: #8b949e;
-}
+.header h1 { font-size: 22px; font-weight: 700; color: #f0f6fc; margin-bottom: 4px; }
+.header .subtitle { font-size: 13px; color: #8b949e; }
 .header .live-dot {
-  display: inline-block;
-  width: 8px; height: 8px;
-  background: #3fb950;
-  border-radius: 50%;
-  margin-right: 6px;
+  display: inline-block; width: 8px; height: 8px;
+  background: #3fb950; border-radius: 50%; margin-right: 6px;
   animation: pulse 2s infinite;
 }
 @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
 
 .controls {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 16px 24px;
-  border-bottom: 1px solid #21262d;
+  display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+  padding: 16px 24px; border-bottom: 1px solid #21262d;
 }
-.controls select, .controls button {
-  background: #21262d;
-  color: #e6edf3;
-  border: 1px solid #30363d;
-  border-radius: 6px;
-  padding: 6px 14px;
-  font-size: 13px;
-  cursor: pointer;
+.controls button {
+  background: #21262d; color: #e6edf3; border: 1px solid #30363d;
+  border-radius: 6px; padding: 6px 14px; font-size: 13px; cursor: pointer;
 }
 .controls button:hover { background: #30363d; }
 .controls .refresh-btn { border-color: #238636; }
 .controls .auto-toggle { border-color: #1f6feb; }
-.controls .status {
-  font-size: 12px;
-  color: #8b949e;
-  margin-left: auto;
+.controls .status { font-size: 12px; color: #8b949e; margin-left: auto; }
+
+.range-buttons { display: flex; gap: 4px; }
+.range-buttons button {
+  padding: 4px 10px; font-size: 12px; border-radius: 4px;
+  background: #21262d; border: 1px solid #30363d; color: #8b949e; cursor: pointer;
 }
+.range-buttons button.active { background: #1f6feb; color: #fff; border-color: #1f6feb; }
 
 .stats-bar {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-  padding: 16px 24px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px; padding: 16px 24px;
 }
 .stat-card {
-  background: #161b22;
-  border: 1px solid #30363d;
-  border-radius: 8px;
-  padding: 14px 16px;
+  background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 14px 16px;
 }
-.stat-card .label {
-  font-size: 11px;
-  color: #8b949e;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-.stat-card .value {
-  font-size: 22px;
-  font-weight: 700;
-  color: #f0f6fc;
-}
-.stat-card .change {
-  font-size: 12px;
-  margin-top: 4px;
-}
+.stat-card .label { font-size: 11px; color: #8b949e; text-transform: uppercase; margin-bottom: 6px; }
+.stat-card .value { font-size: 22px; font-weight: 700; color: #f0f6fc; }
+.stat-card .change { font-size: 12px; margin-top: 4px; }
 .positive { color: #3fb950; }
 .negative { color: #f85149; }
 
-.chart-container {
-  padding: 0 24px 24px;
-}
+.chart-container { padding: 0 24px 24px; }
 .chart-box {
-  background: #161b22;
-  border: 1px solid #30363d;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 16px;
+  background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+  padding: 16px; margin-bottom: 16px;
 }
-.chart-box h2 {
-  font-size: 14px;
-  color: #8b949e;
-  margin-bottom: 12px;
-  font-weight: 500;
-}
-.chart-canvas-wrapper {
-  position: relative;
-  height: 400px;
-}
+.chart-box h2 { font-size: 14px; color: #8b949e; margin-bottom: 12px; font-weight: 500; }
+.chart-canvas-wrapper { position: relative; height: 400px; }
 .chart-canvas-wrapper.small { height: 280px; }
 
 .footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 12px;
-  color: #8b949e;
+  text-align: center; padding: 20px; font-size: 12px; color: #8b949e;
   border-top: 1px solid #21262d;
 }
-.footer a { color: #58a6ff; text-decoration: none; }
-.footer a:hover { text-decoration: underline; }
 
 .loading-overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(13,17,23,0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(13,17,23,0.8); display: flex; align-items: center; justify-content: center; z-index: 999;
 }
 .loading-overlay.hidden { display: none; }
 .spinner {
-  width: 40px; height: 40px;
-  border: 3px solid #30363d;
-  border-top: 3px solid #58a6ff;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+  width: 40px; height: 40px; border: 3px solid #30363d;
+  border-top: 3px solid #58a6ff; border-radius: 50%; animation: spin 1s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 .insight-box {
-  background: #161b22;
-  border: 1px solid #30363d;
-  border-radius: 8px;
-  padding: 16px 20px;
-  margin: 0 24px 16px;
+  background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+  padding: 16px 20px; margin: 0 24px 16px;
 }
-.insight-box h2 {
-  font-size: 14px;
-  color: #8b949e;
-  margin-bottom: 10px;
-}
-.insight-box p {
-  font-size: 13px;
-  line-height: 1.7;
-  color: #c9d1d9;
-}
+.insight-box h2 { font-size: 14px; color: #8b949e; margin-bottom: 10px; }
+.insight-box p { font-size: 13px; line-height: 1.7; color: #c9d1d9; }
 .insight-box .tag {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 600;
-  margin-right: 6px;
+  display: inline-block; padding: 2px 8px; border-radius: 4px;
+  font-size: 11px; font-weight: 600; margin-right: 6px;
 }
 .tag-bull { background: rgba(63,185,80,0.15); color: #3fb950; }
 .tag-bear { background: rgba(248,81,73,0.15); color: #f85149; }
 .tag-neutral { background: rgba(139,148,158,0.15); color: #8b949e; }
-
-.range-buttons {
-  display: flex;
-  gap: 4px;
-}
-.range-buttons button {
-  padding: 4px 10px;
-  font-size: 12px;
-  border-radius: 4px;
-  background: #21262d;
-  border: 1px solid #30363d;
-  color: #8b949e;
-  cursor: pointer;
-}
-.range-buttons button.active {
-  background: #1f6feb;
-  color: #fff;
-  border-color: #1f6feb;
-}
 </style>
 </head>
 <body>
 
 <div class="header">
   <h1>铜油比指标追踪 <span class="live-dot"></span></h1>
-  <div class="subtitle">Copper-Oil Ratio Tracker | 铜(COPPERUSDT) / 油(OUSDT) + A股代理(BABAUSDT) | 数据: Binance USD-M永续合约</div>
+  <div class="subtitle">Copper-Oil Ratio vs 上证指数 | 铜(COPPERUSDT) / 油(OUSDT) + 上证指数(sh000001)</div>
 </div>
 
 <div class="controls">
@@ -231,9 +137,9 @@ body {
     <div class="change" id="statOilChange">--</div>
   </div>
   <div class="stat-card">
-    <div class="label">BABA (A股代理)</div>
-    <div class="value" id="statBaba">--</div>
-    <div class="change" id="statBabaChange">--</div>
+    <div class="label">上证指数</div>
+    <div class="value" id="statSSE">--</div>
+    <div class="change" id="statSSEChange">--</div>
   </div>
   <div class="stat-card">
     <div class="label">铜油比 vs 均值偏离</div>
@@ -249,34 +155,26 @@ body {
 
 <div class="chart-container">
   <div class="chart-box">
-    <h2>铜油比 vs A股代理(BABA) — 标准化指数 (起点=100)</h2>
-    <div class="chart-canvas-wrapper">
-      <canvas id="chartRatio"></canvas>
-    </div>
+    <h2>铜油比 vs 上证指数 — 标准化指数 (起点=100)</h2>
+    <div class="chart-canvas-wrapper"><canvas id="chartRatio"></canvas></div>
   </div>
   <div class="chart-box">
     <h2>铜价 & 油价 原始走势</h2>
-    <div class="chart-canvas-wrapper small">
-      <canvas id="chartPrices"></canvas>
-    </div>
+    <div class="chart-canvas-wrapper small"><canvas id="chartPrices"></canvas></div>
   </div>
   <div class="chart-box">
     <h2>铜油比 原始值 + 均值线</h2>
-    <div class="chart-canvas-wrapper small">
-      <canvas id="chartRawRatio"></canvas>
-    </div>
+    <div class="chart-canvas-wrapper small"><canvas id="chartRawRatio"></canvas></div>
   </div>
 </div>
 
 <div class="footer">
-  <p>数据来源: Binance USD-M Futures API | 每日自动更新 | GitHub Actions 定时爬取</p>
+  <p>铜: Binance COPPERUSDT | 油: Binance OUSDT | 上证指数: 腾讯财经 sh000001</p>
   <p>铜油比 = 铜价 / 油价 · 比值上升暗示工业需求扩张 · 比值下降暗示滞胀风险</p>
   <p>仅供研究参考，不构成投资建议</p>
 </div>
 
-<div class="loading-overlay" id="loadingOverlay">
-  <div class="spinner"></div>
-</div>
+<div class="loading-overlay" id="loadingOverlay"><div class="spinner"></div></div>
 
 <script>
 let charts = {};
@@ -284,25 +182,19 @@ let autoUpdateTimer = null;
 let allData = null;
 let currentRange = 200;
 
-// ─── 数据加载（从 data.json 读取）──────────────────────
 async function loadData() {
-  const overlay = document.getElementById('loadingOverlay');
-  overlay.classList.remove('hidden');
-
+  document.getElementById('loadingOverlay').classList.remove('hidden');
   try {
-    // 加 cache-buster 确保拿到最新数据
     const res = await fetch('data.json?t=' + Date.now());
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     allData = await res.json();
     renderAll();
-    const now = new Date();
     document.getElementById('updateStatus').textContent =
       `数据更新: ${allData.meta.updated_at_local} | ${allData.meta.data_points} 天`;
   } catch (e) {
-    console.error('Load error:', e);
     document.getElementById('updateStatus').textContent = `错误: ${e.message}`;
   } finally {
-    overlay.classList.add('hidden');
+    document.getElementById('loadingOverlay').classList.add('hidden');
   }
 }
 
@@ -312,13 +204,13 @@ function getRangeData() {
   const total = s.dates.length;
   const start = Math.max(0, total - currentRange);
   return {
-    dates: s.dates.slice(start).map(t => new Date(t)),
+    dates: s.dates.slice(start),
     copper: s.copper.slice(start),
     oil: s.oil.slice(start),
-    baba: s.baba.slice(start),
+    sse: s.sse.slice(start),
     ratio: s.ratio.slice(start),
     ratioIdx: s.ratio_normalized.slice(start),
-    babaIdx: s.baba_normalized.slice(start),
+    sseIdx: s.sse_normalized.slice(start),
   };
 }
 
@@ -330,7 +222,8 @@ function renderAll() {
   renderCharts(d);
 }
 
-// ─── 统计卡片 ──────────────────────────────────────────
+function avg(arr) { return arr.reduce((a,b) => a+b, 0) / arr.length; }
+
 function updateStats(d) {
   const fmt = (v, prefix='') => prefix + v.toFixed(2);
   const pct = (arr) => arr.length >= 2 ? (arr[arr.length-1] / arr[0] - 1) * 100 : 0;
@@ -340,42 +233,31 @@ function updateStats(d) {
   const ratioPct = pct(d.ratio);
   const copperPct = pct(d.copper);
   const oilPct = pct(d.oil);
-  const babaPct = pct(d.baba);
+  const ssePct = pct(d.sse);
   const meanR = avg(d.ratio);
   const dev = (d.ratio[d.ratio.length-1] / meanR - 1) * 100;
 
   document.getElementById('statRatio').textContent = fmt(d.ratio[d.ratio.length-1]);
-  document.getElementById('statRatioChange').innerHTML =
-    `<span class="${cls(ratioPct)}">${fmtPct(ratioPct)}</span> · 均值 ${meanR.toFixed(2)}`;
-
+  document.getElementById('statRatioChange').innerHTML = `<span class="${cls(ratioPct)}">${fmtPct(ratioPct)}</span> · 均值 ${meanR.toFixed(2)}`;
   document.getElementById('statCopper').textContent = fmt(d.copper[d.copper.length-1], '$');
   document.getElementById('statCopperChange').innerHTML = `<span class="${cls(copperPct)}">${fmtPct(copperPct)}</span>`;
-
   document.getElementById('statOil').textContent = '$' + d.oil[d.oil.length-1].toFixed(4);
   document.getElementById('statOilChange').innerHTML = `<span class="${cls(oilPct)}">${fmtPct(oilPct)}</span>`;
-
-  document.getElementById('statBaba').textContent = fmt(d.baba[d.baba.length-1], '$');
-  document.getElementById('statBabaChange').innerHTML = `<span class="${cls(babaPct)}">${fmtPct(babaPct)}</span>`;
-
+  document.getElementById('statSSE').textContent = fmt(d.sse[d.sse.length-1]);
+  document.getElementById('statSSEChange').innerHTML = `<span class="${cls(ssePct)}">${fmtPct(ssePct)}</span>`;
   document.getElementById('statDeviation').textContent = fmtPct(dev);
-  document.getElementById('statDeviationDesc').innerHTML = dev >= 0
-    ? '<span class="positive">高于均值</span>'
-    : '<span class="negative">低于均值</span>';
+  document.getElementById('statDeviationDesc').innerHTML = dev >= 0 ? '<span class="positive">高于均值</span>' : '<span class="negative">低于均值</span>';
 }
 
-function avg(arr) { return arr.reduce((a,b) => a+b, 0) / arr.length; }
-
-// ─── 市场洞察 ──────────────────────────────────────────
 function updateInsight(d) {
   const ratioPct = (d.ratio[d.ratio.length-1] / d.ratio[0] - 1) * 100;
-  const babaPct = (d.baba[d.baba.length-1] / d.baba[0] - 1) * 100;
+  const ssePct = (d.sse[d.sse.length-1] / d.sse[0] - 1) * 100;
   const copperPct = (d.copper[d.copper.length-1] / d.copper[0] - 1) * 100;
   const oilPct = (d.oil[d.oil.length-1] / d.oil[0] - 1) * 100;
   const meanR = avg(d.ratio);
   const dev = (d.ratio[d.ratio.length-1] / meanR - 1) * 100;
 
-  let tags = [];
-  let parts = [];
+  let tags = [], parts = [];
 
   if (ratioPct > 15) {
     tags.push('<span class="tag tag-bull">铜强油弱</span>');
@@ -388,17 +270,17 @@ function updateInsight(d) {
     parts.push(`铜油比变化 ${ratioPct.toFixed(1)}%，铜油走势相对均衡。`);
   }
 
-  const divergence = ratioPct - babaPct;
-  if (Math.abs(divergence) > 20) {
+  const divergence = ratioPct - ssePct;
+  if (Math.abs(divergence) > 15) {
     if (divergence > 0) {
       tags.push('<span class="tag tag-bull">A股滞后</span>');
-      parts.push(` 铜油比涨 ${ratioPct.toFixed(1)}% 但 BABA 仅 ${babaPct.toFixed(1)}%，背离 ${divergence.toFixed(1)}%。A股可能尚未定价经济复苏，存在补涨空间。`);
+      parts.push(` 铜油比涨 ${ratioPct.toFixed(1)}% 但上证仅 ${ssePct.toFixed(1)}%，背离 ${divergence.toFixed(1)}%。A股可能尚未定价经济复苏，存在补涨空间。`);
     } else {
       tags.push('<span class="tag tag-bear">A股领先</span>');
-      parts.push(` BABA 涨 ${babaPct.toFixed(1)}% 超越铜油比 ${ratioPct.toFixed(1)}%，A股可能已提前反映复苏预期。`);
+      parts.push(` 上证涨 ${ssePct.toFixed(1)}% 超越铜油比 ${ratioPct.toFixed(1)}%，A股可能已提前反映复苏预期。`);
     }
   } else {
-    parts.push(` 铜油比与BABA走势基本同步，背离度 ${divergence.toFixed(1)}%。`);
+    parts.push(` 铜油比与上证走势基本同步，背离度 ${divergence.toFixed(1)}%。`);
   }
 
   if (dev > 15) {
@@ -414,15 +296,16 @@ function updateInsight(d) {
   document.getElementById('insightText').innerHTML = tags.join('') + parts.join('');
 }
 
-// ─── 图表渲染 ──────────────────────────────────────────
 function renderCharts(d) {
   Chart.defaults.color = '#8b949e';
   Chart.defaults.borderColor = '#30363d';
+  const grid = { color: 'rgba(48,54,61,0.5)' };
+  const ticks = { maxTicksLimit: 12, maxRotation: 0 };
 
-  const gridConfig = { color: 'rgba(48,54,61,0.5)' };
-  const tickConfig = { maxTicksLimit: 12, maxRotation: 0 };
+  // dates are strings "2026-06-24", convert to Date objects
+  const dateObjs = d.dates.map(s => new Date(s + 'T00:00:00'));
 
-  // 图1: 标准化铜油比 vs BABA
+  // 图1: 标准化铜油比 vs 上证
   if (charts.ratio) charts.ratio.destroy();
   const ctx1 = document.getElementById('chartRatio').getContext('2d');
   const goldGrad = ctx1.createLinearGradient(0, 0, 0, 400);
@@ -432,12 +315,12 @@ function renderCharts(d) {
   charts.ratio = new Chart(ctx1, {
     type: 'line',
     data: {
-      labels: d.dates,
+      labels: dateObjs,
       datasets: [
         { label: '铜油比 (标准化=100)', data: d.ratioIdx,
           borderColor: '#D4A017', backgroundColor: goldGrad,
           borderWidth: 2.2, fill: true, tension: 0.3, pointRadius: 0, pointHoverRadius: 5 },
-        { label: 'BABA / A股代理 (标准化=100)', data: d.babaIdx,
+        { label: '上证指数 (标准化=100)', data: d.sseIdx,
           borderColor: '#DC143C', backgroundColor: 'transparent',
           borderWidth: 1.8, fill: false, tension: 0.3, pointRadius: 0, pointHoverRadius: 5 }
       ]
@@ -452,20 +335,18 @@ function renderCharts(d) {
             label: i => `${i.dataset.label}: ${i.parsed.y.toFixed(2)}` } }
       },
       scales: {
-        x: { type: 'time', time: { unit: 'day' }, grid: gridConfig, ticks: tickConfig },
-        y: { grid: gridConfig, ticks: { callback: v => v.toFixed(0) },
-          title: { display: true, text: '标准化指数 (起点=100)' } }
+        x: { type: 'time', time: { unit: 'day' }, grid, ticks },
+        y: { grid, ticks: { callback: v => v.toFixed(0) }, title: { display: true, text: '标准化指数 (起点=100)' } }
       }
     }
   });
 
   // 图2: 铜价 + 油价
   if (charts.prices) charts.prices.destroy();
-  const ctx2 = document.getElementById('chartPrices').getContext('2d');
-  charts.prices = new Chart(ctx2, {
+  charts.prices = new Chart(document.getElementById('chartPrices').getContext('2d'), {
     type: 'line',
     data: {
-      labels: d.dates,
+      labels: dateObjs,
       datasets: [
         { label: '铜 COPPERUSDT ($)', data: d.copper,
           borderColor: '#B87333', backgroundColor: 'rgba(184,115,51,0.1)',
@@ -485,8 +366,8 @@ function renderCharts(d) {
             label: i => `${i.dataset.label}: $${i.parsed.y.toFixed(4)}` } }
       },
       scales: {
-        x: { type: 'time', time: { unit: 'day' }, grid: gridConfig, ticks: tickConfig },
-        y: { position: 'left', grid: gridConfig, title: { display: true, text: '铜价 ($)' } },
+        x: { type: 'time', time: { unit: 'day' }, grid, ticks },
+        y: { position: 'left', grid, title: { display: true, text: '铜价 ($)' } },
         y1: { position: 'right', grid: { drawOnChartArea: false }, title: { display: true, text: '油价 ($)' } }
       }
     }
@@ -494,17 +375,16 @@ function renderCharts(d) {
 
   // 图3: 铜油比原始值
   if (charts.rawRatio) charts.rawRatio.destroy();
-  const ctx3 = document.getElementById('chartRawRatio').getContext('2d');
   const meanR = avg(d.ratio);
-  charts.rawRatio = new Chart(ctx3, {
+  charts.rawRatio = new Chart(document.getElementById('chartRawRatio').getContext('2d'), {
     type: 'line',
     data: {
-      labels: d.dates,
+      labels: dateObjs,
       datasets: [
         { label: '铜油比', data: d.ratio,
           borderColor: '#D4A017', backgroundColor: goldGrad,
           borderWidth: 2, fill: true, tension: 0.3, pointRadius: 0 },
-        { label: `均值 (${meanR.toFixed(2)})`, data: d.dates.map(() => meanR),
+        { label: `均值 (${meanR.toFixed(2)})`, data: dateObjs.map(() => meanR),
           borderColor: '#58a6ff', borderWidth: 1.2, borderDash: [5, 5],
           fill: false, pointRadius: 0 }
       ]
@@ -519,14 +399,13 @@ function renderCharts(d) {
             label: i => `${i.dataset.label}: ${i.parsed.y.toFixed(2)}` } }
       },
       scales: {
-        x: { type: 'time', time: { unit: 'day' }, grid: gridConfig, ticks: tickConfig },
-        y: { grid: gridConfig, title: { display: true, text: '铜油比' } }
+        x: { type: 'time', time: { unit: 'day' }, grid, ticks },
+        y: { grid, title: { display: true, text: '铜油比' } }
       }
     }
   });
 }
 
-// ─── 自动更新 ──────────────────────────────────────────
 function toggleAutoUpdate() {
   const btn = document.getElementById('autoBtn');
   if (autoUpdateTimer) {
@@ -535,13 +414,12 @@ function toggleAutoUpdate() {
     btn.textContent = '自动更新: OFF';
     btn.style.borderColor = '#1f6feb';
   } else {
-    autoUpdateTimer = setInterval(loadData, 5 * 60 * 1000); // 每5分钟刷新
+    autoUpdateTimer = setInterval(loadData, 5 * 60 * 1000);
     btn.textContent = '自动更新: ON';
     btn.style.borderColor = '#238636';
   }
 }
 
-// ─── 区间切换 ──────────────────────────────────────────
 document.getElementById('rangeButtons').addEventListener('click', (e) => {
   if (e.target.tagName !== 'BUTTON') return;
   document.querySelectorAll('#rangeButtons button').forEach(b => b.classList.remove('active'));
@@ -550,9 +428,7 @@ document.getElementById('rangeButtons').addEventListener('click', (e) => {
   if (allData) renderAll();
 });
 
-// ─── 初始化 ──────────────────────────────────────────
 loadData();
 </script>
-
 </body>
 </html>
